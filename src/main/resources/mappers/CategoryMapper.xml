@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.person.mail.dao.CategoryMapper">
+    <sql id="Base_Column_List">
+              id, parent_id, name, status, sort_order, create_time, update_time
+    </sql>
+
+    <!-- 编写SQL语言 表名称 和 字段名称 与数据库保持一致 -->
+    <!-- mall_category 为数据中表名称  -->
+
+    <select id="queryById" resultType="com.person.mail.pojo.Category">
+    select
+    <include refid="Base_Column_List"/>
+    from
+    mall_category
+    where id = #{id}
+  </select>
+</mapper>
